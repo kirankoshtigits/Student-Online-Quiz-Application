@@ -1,0 +1,50 @@
+﻿@model QUIZ_APPLICATION.Models.TBL_QUESTION
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>QuizStartPage</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    @ViewBag.Error
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                    <div class="row">
+                        <h1 style="font-family:Arial, Helvetica, sans-serif"> @Html.DisplayFor(x => x.Q_TEXT)</h1>
+                    </div>
+                    <div class="row">
+                        <h5> @Html.RadioButtonFor(x => x.OPA, Model.QUESTION_ID)@Model.OPA</h5>
+                    </div>
+                    <div class="row">
+                        <h5> @Html.RadioButtonFor(x => x.OPB, Model.QUESTION_ID)@Model.OPB</h5>
+                    </div>
+                    <div class="row">
+                        <h5> @Html.RadioButtonFor(x => x.OPC, Model.QUESTION_ID)@Model.OPC</h5>
+                    </div>
+                    <div class="row">
+                        <h5> @Html.RadioButtonFor(x => x.OPD, Model.QUESTION_ID)@Model.OPD</h5>
+                    </div>
+                    <div class="row" style="display:none">
+                        @Html.TextBoxFor(x => x.COP);
+                    </div><br />
+                    <div class="row">
+                        <input type="submit" value="Submit" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿@model QUIZ_APPLICATION.Models.TBL_STUDENT
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>StudentRegister</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #d0d6e2;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <marquee behavior="scroll" direction="left" scrollamount="12" style="font-size:80px;font-family:'Times New Roman'; color:#ef6c00 ;padding-top:10px;"> Wel-Come To Student Registration Form</marquee>
+    </div>
+
+    @if (ViewBag.ErrorMsg != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <strong>Error..!</strong>@ViewBag.ErrorMsg
+        </div>
+    }
+    <div class="container-fluid">
+        <div class="row">
+            <h1 style="text-align:center; font-family:'Times New Roman'">Student Registration</h1>
+            <div class="col-lg-offset-4">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    @using (Html.BeginForm("StudentRegister", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="form-group">
+                            <h4 style="font-family:'Times New Roman'">
+                                <label for="email">Email :</label>
+                            </h4>
+                                @*<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">*@
+                             @Html.TextBoxFor(x => x.STD_NAME, htmlAttributes: new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <h4 style="font-family:'Times New Roman'">
+                                <label for="pwd">Password :</label>
+                            </h4>
+                                @Html.PasswordFor(x => x.STD_PASSWORD, htmlAttributes: new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <h4 style="font-family:'Times New Roman'">
+                                <label for="pwd">Upload Image :</label>
+                            </h4>
+                                <input type="file" class="form-control btn btn-info" id="imgFile" name="imgFile" />
+                        </div>
+                        <input type="submit" class="btn btn-success btn-block" value="Register Now !" />
+                    }
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<div>
+    <h3 style="padding-left:400px; font-family:'Times New Roman'">@Html.ActionLink("Back Login Page", "StudentLogin")  </h3>
+</div>

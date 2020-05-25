@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "StudentExam";
+}
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title></title>
+</head>
+<body>
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <strong>Error..!</strong>@ViewBag.Error
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+        <h2 style="text-align:center;background-color:#808080; font-family:Algerian">Enter Room Number</h2><br />
+        <input type="text" id="room" name="room" placeholder="Room Number" class="form-control" /><br />
+        <input type="submit" value="Submit" class="btn btn-info" />
+    }
+</body>
+</html>
+
